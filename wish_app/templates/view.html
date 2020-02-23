@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>View Job</title>
+</head>
+<body>
+    <div class=container>
+        <div class="row">
+            <h2>Hello {{user_id.first_name}}! These are the job details! </h2> 
+            <div class="col">
+                <a class="btn btn-outline-primary" data-toggle="collapse" href="/dashboard" role="button" aria-expanded="false" aria-controls="collapseExample">Dashboard</a>
+                <a class="btn btn-outline-primary" data-toggle="collapse" href="/logout" role="button" aria-expanded="false" aria-controls="collapseExample">Logout</a>
+            </div>
+        </div>
+        <div class="row">
+            <h3>{{job.title}}</h3></li>
+        </div>
+            <ul>
+                <li>Description:{{job.desc}}</li>
+                <li>Posted by: {{job.user.first_name}}</li>
+                <li>Posted on: {{job.created_at}}</li>
+            </ul>
+
+
+    </div>
+</body>
+</html>

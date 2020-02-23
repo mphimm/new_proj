@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Edit Job</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Hello {{first_name}}! Lets's edit your job! </h2>
+            </div>
+                <a class="btn btn-outline-primary" data-toggle="collapse" href="/logout" role="button" aria-expanded="false" aria-controls="collapseExample">Logout</a>
+             
+        </div>
+        
+        <form action="/edit_proc" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="formGroupExampleInput">Title:</label>
+              <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="Walk the dog">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Description:</label>
+              <input type="text" name="desc" class="form-control" id="formGroupExampleInput2" placeholder="...... whatever you want!">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Location:</label>
+                <input type="text" name="location" class="form-control" id="formGroupExampleInput2" placeholder="...... wherever you want!">
+              </div>
+              <input type="hidden" name="job_id" value="{{job.id}}">
+              <a class="btn btn-primary" href="/dashboard">Cancel</a>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+
+            {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            
+
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+</html>

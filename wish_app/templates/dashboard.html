@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Handy Helper Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Hello {{user.first_name}}!</h1>
+            </div>
+            <div class="col">
+                
+            
+            <a class="btn btn-outline-dark" data-toggle="collapse" href="/new" role="button" aria-expanded="false" aria-controls="collapseExample">New Job</a>
+
+            <a class="btn btn-outline-primary" data-toggle="collapse" href="/logout" role="button" aria-expanded="false" aria-controls="collapseExample">Logout</a>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <h5>Everyone's jobs: </h5>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Job</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for job in all_jobs %}
+                  <tr> 
+                    <td>{{job.title}}</td>
+                    <td>{{job.location}}</td>
+                    
+                    
+                    <td><a href="/view/{{job.id}}">View</a> l
+                      {% if job.user == user %}
+                        <a href="/remove/{{job.id}}">Remove</a> l 
+                        <a href="/edit/{{job.id}}">Edit</a> l</td>
+                      {% endif %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+
+        </div>
+    
+</body>
+</html>
